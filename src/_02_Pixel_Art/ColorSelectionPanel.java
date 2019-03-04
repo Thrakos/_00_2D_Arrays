@@ -1,12 +1,15 @@
 package _02_Pixel_Art;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.util.Hashtable;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,10 +17,12 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class ColorSelectionPanel extends JPanel implements MouseListener, ChangeListener{
+public class ColorSelectionPanel extends JPanel implements MouseListener, ChangeListener, ActionListener{
 	private static final long serialVersionUID = 1L;
 	
 	public static final int MAX_COLOR = 256;
+	
+	private JButton saveButton;
 	
 	private JSlider rSlider;
 	private JSlider gSlider;
@@ -36,6 +41,10 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 		rSlider = new JSlider(JSlider.VERTICAL);
 		gSlider = new JSlider(JSlider.VERTICAL);
 		bSlider = new JSlider(JSlider.VERTICAL);
+		
+		saveButton = new JButton();
+		saveButton.setText("SAVE");
+		saveButton.addActionListener(this);
 		
 		rSlider.setMinimum(0);
 		rSlider.setMaximum(MAX_COLOR - 1);
@@ -71,6 +80,8 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 		add(gSlider);
 		add(new JLabel("blue"));
 		add(bSlider);
+		
+		add(saveButton);
 	}
 
 	public Color getSelectedColor() {
@@ -79,7 +90,9 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
+		if (e.getSource() == saveButton) {
+			
+		}
 	}
 
 	@Override
@@ -124,5 +137,11 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 		
 		colorLabel.setIcon(new ImageIcon(colorImage));
 		add(colorLabel);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
