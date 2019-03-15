@@ -21,9 +21,7 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 	private static final long serialVersionUID = 1L;
 	
 	public static final int MAX_COLOR = 256;
-	
-	private JButton saveButton;
-	
+		
 	private JSlider rSlider;
 	private JSlider gSlider;
 	private JSlider bSlider;
@@ -41,11 +39,7 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 		rSlider = new JSlider(JSlider.VERTICAL);
 		gSlider = new JSlider(JSlider.VERTICAL);
 		bSlider = new JSlider(JSlider.VERTICAL);
-		
-		saveButton = new JButton();
-		saveButton.setText("SAVE");
-		saveButton.addActionListener(this);
-		
+				
 		rSlider.setMinimum(0);
 		rSlider.setMaximum(MAX_COLOR - 1);
 		rSlider.setValue(0);
@@ -80,8 +74,6 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 		add(gSlider);
 		add(new JLabel("blue"));
 		add(bSlider);
-		
-		add(saveButton);
 	}
 
 	public Color getSelectedColor() {
@@ -90,9 +82,6 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (e.getSource() == saveButton) {
-			
-		}
 	}
 
 	@Override
